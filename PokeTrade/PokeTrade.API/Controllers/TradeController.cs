@@ -36,8 +36,8 @@ namespace PokeTrade.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetHistory")]
-        public ActionResult<IEnumerable<TradeViewModel>> GetHistory()
+        [Route("GetTradeHistory")]
+        public ActionResult<IEnumerable<TradeViewModel>> GetTradeHistory()
         {
             try
             {
