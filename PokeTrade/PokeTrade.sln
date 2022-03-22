@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeTrade.API", "PokeTrade.API\PokeTrade.API.csproj", "{CE558D4F-C703-4BFB-B894-BE159294752B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeTrade.API", "PokeTrade.API\PokeTrade.API.csproj", "{CE558D4F-C703-4BFB-B894-BE159294752B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeTrade.Domain", "PokeTrade.Domain\PokeTrade.Domain.csproj", "{87C685F3-540D-4E91-81FF-ED07598FCF63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeTrade.Domain", "PokeTrade.Domain\PokeTrade.Domain.csproj", "{87C685F3-540D-4E91-81FF-ED07598FCF63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeTrade.Infrastructure", "PokeTrade.Infra\PokeTrade.Infrastructure.csproj", "{3EDEA53B-ECDA-47B1-8DD0-9014D7204CCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeTrade.Infrastructure", "PokeTrade.Infra\PokeTrade.Infrastructure.csproj", "{3EDEA53B-ECDA-47B1-8DD0-9014D7204CCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeTrade.Application", "PokeTrade.Application\PokeTrade.Application.csproj", "{C74D0D8B-A216-405C-8F09-DDBF1B616A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeTrade.Application", "PokeTrade.Application\PokeTrade.Application.csproj", "{C74D0D8B-A216-405C-8F09-DDBF1B616A13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

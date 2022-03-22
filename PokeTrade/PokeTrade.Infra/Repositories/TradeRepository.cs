@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
-using PokeTrade.Domain;
 using PokeTrade.Domain.Entities;
-using PokeTrade.Domain.Enums;
 using PokeTrade.Domain.IRepository;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PokeTrade.Infrastructure.Repository
@@ -42,6 +39,5 @@ namespace PokeTrade.Infrastructure.Repository
 
 			return ExecuteAsync(sql, param);
         }
-
     }
 }

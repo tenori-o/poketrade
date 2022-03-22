@@ -29,6 +29,11 @@ namespace PokeTrade.API
 
             services.AddAutoMapper(typeof(AutoMapperSetup));
 
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
             ConfigureDependencyInjection(services);
         }
 

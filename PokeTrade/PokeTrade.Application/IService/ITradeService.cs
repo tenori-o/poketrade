@@ -1,6 +1,6 @@
-﻿using PokeTrade.Domain.ViewModel;
+﻿using PokeTrade.Domain.Dtos;
+using PokeTrade.Domain.ViewModel;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace PokeTrade.Application.IService
 {
