@@ -6,7 +6,7 @@ namespace PokeTrade.Application.IService
 {
     public interface ITradeService
     {
-        Task<bool> MakeTrade(TradeViewModel trade);
-        Task<IEnumerable<TradeViewModel>> GetHistoryByPlayer(PlayerViewModel player);
+        bool MakeTrade(TradeViewModel tradeVM);
+        IEnumerable<TradeViewModel> GetHistory();
     }
 }

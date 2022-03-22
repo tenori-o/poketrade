@@ -23,17 +23,19 @@ namespace PokeTrade.API.Controllers
 
         // GET: api/<TradeController>
         [HttpPost]
-        public Task<bool> MakeTrade([FromBody] TradeViewModel trade)
+        [Route("MakeTrade")]
+        public bool MakeTrade([FromBody] TradeViewModel trade)
         {
             return _tradeService.MakeTrade(trade);
         }
 
-        //// GET api/<TradeController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // GET api/<TradeController>/5
+        [HttpGet]
+        [Route("GetHistory")]
+        public IEnumerable<TradeViewModel> GetHistory()
+        {
+            return _tradeService.GetHistory();
+        }
 
         //// POST api/<TradeController>
         //[HttpPost]

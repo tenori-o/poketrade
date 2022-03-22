@@ -1,7 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
+using PokeTrade.Domain;
 using PokeTrade.Domain.Entities;
+using PokeTrade.Domain.Enums;
 using PokeTrade.Domain.IRepository;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PokeTrade.Infrastructure.Repository
@@ -9,50 +13,34 @@ namespace PokeTrade.Infrastructure.Repository
     public class TradeRepository : DapperRepository<Trade>, ITradeRepository
     {
         private readonly IConfiguration _configuration;
+		private readonly IMapper _mapper;
 
-        public TradeRepository(IConfiguration configuration) : base(configuration) { }
-
-        public Task<Trade> Get(int id)
+		public TradeRepository(IConfiguration configuration, IMapper mapper) : base(configuration)
         {
-            var sql = @"SELECT * FROM Trade";
-            return QueryFirstAsync<Trade>(sql);
-        }
+			_mapper = mapper;
+		}
 
-        public Task<IEnumerable<Trade>> GetAll(int id)
+        public IEnumerable<Trade> GetHistory()
         {
-            var sql = @"SELECT TOP 1 * FROM Trade";
-            return QueryAsync<Trade>(sql);
-        }
+            var sql = @"select * from trade";
 
-        public Task<int> Update(Trade trade)
+			return Query<Trade>(sql); ;
+		}
+
+		public Task<int> Insert(Trade trade)
         {
-            var sql = @"Update Trade
-            SET InitDate = @initDate,
-                CloseDate = @closeDate,
-                Status = @status
-            WHERE Id = @id";
+			var sql = @"insert into trade(PokemonsP1, PokemonsP2, BaseExpP1, BaseExpP2, Status) values(@pokep1, @pokep2, @baseexpp1, @baseexpp2, @status);";
 
-            var param = new
-            {
-                id = trade.Id,
-                initDate = trade.InitDate,
-                closeDate = trade.CloseDate,
-                status = trade.Status
-            };
+			var param = new
+			{
+				pokep1 = trade.PokemonsP1,
+				pokep2 = trade.PokemonsP2,
+				baseexpp1 = trade.BaseExpP1,
+				baseexpp2 = trade.BaseExpP2,
+				status = trade.Status
+			};
 
-            return ExecuteAsync(sql, param);
-        }
-
-        public Task<int> Delete(int id)
-        {
-            var sql = @"DELETE FROM trade WHERE Id = @id";
-
-            var param = new
-            {
-                id = id
-            };
-
-            return ExecuteAsync(sql, param);
+			return ExecuteAsync(sql, param);
         }
 
     }

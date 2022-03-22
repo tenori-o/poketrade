@@ -8,9 +8,7 @@ namespace PokeTrade.Domain.IRepository
 {
     public interface ITradeRepository
     {
-        Task<Trade> Get(int id);
-        Task<IEnumerable<Trade>> GetAll(int id);
-        Task<int> Update(Trade trade);
-        Task<int> Delete(int id);
+        IEnumerable<Trade> GetHistory();
+        Task<int> Insert(Trade trade);
     }
 }

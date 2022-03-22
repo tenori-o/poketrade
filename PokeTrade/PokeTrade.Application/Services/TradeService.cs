@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PokeTrade.Application.IService;
 using PokeTrade.Domain.Entities;
+using PokeTrade.Domain.Enums;
 using PokeTrade.Domain.Exceptions;
 using PokeTrade.Domain.IRepository;
 using PokeTrade.Domain.ViewModel;
@@ -22,33 +23,32 @@ namespace PokeTrade.Application.Services
             _mapper = mapper;
         }
 
-        public Task<bool> MakeTrade(TradeViewModel tradeVM)
+        public bool MakeTrade(TradeViewModel tradeVM)
         {
+
             // Verificar se a soma do baseExperience dos 2 jogadores é similar e considerar a troca justa ou não
-            int sumBaseExpPlayer1 = tradeVM.Player1.Pokemons.Sum(item => item.BaseExperience);
-            int sumBaseExpPlayer2 = tradeVM.Player2.Pokemons.Sum(item => item.BaseExperience);
-
-            if (sumBaseExpPlayer1 != sumBaseExpPlayer2)
-            {
-                throw new TradeException("Trade not fair");
-            }
-
             var trade = _mapper.Map<Trade>(tradeVM);
 
-            // insere informação dos players
+            if (tradeVM.BaseExperienceP1 != tradeVM.BaseExperienceP2)
+            {
+                tradeVM.Status = TradeStatus.FAIR.ToString();
+                _tradeRepository.Insert(trade);
 
-            // insere informação dos pokemons
+                throw new TradeException("Unfair trade");
+            }
 
-            // insere informação do trade
+            tradeVM.Status = TradeStatus.UNFAIR.ToString();
+            _tradeRepository.Insert(trade);
 
-            // insere informação dos itens de trade
-
-            return null;
+            return true;
         }
         
-        public Task<IEnumerable<TradeViewModel>> GetHistoryByPlayer(PlayerViewModel player)
+        public IEnumerable<TradeViewModel> GetHistory()
         {
-            throw new NotImplementedException();
+            var tradeList = _tradeRepository.GetHistory();
+            var result =  _mapper.Map<IEnumerable<Trade>, IEnumerable<TradeViewModel>> (tradeList);
+            
+            return result;
         }
     }
 }
