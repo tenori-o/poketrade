@@ -9,6 +9,6 @@ namespace PokeTrade.Domain.IRepository
     public interface ITradeRepository
     {
         IEnumerable<Trade> GetHistory();
-        Task<int> Insert(Trade trade);
+        int Insert(Trade trade);
     }
 }

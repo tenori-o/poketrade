@@ -11,7 +11,6 @@ namespace PokeTrade.Infrastructure.Repository
 {
     public class DapperRepository<T> : IGenericDapperRepository<T> where T : class
     {
-        private readonly IConfiguration _configuration;
         private string ConnectionString;
 
         public DapperRepository()
@@ -37,7 +36,7 @@ namespace PokeTrade.Infrastructure.Repository
             }
         }
 
-        public IEnumerable<T> Query<T>(string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int commandTimeout = 0, CommandType? commandType = null)
+        public IEnumerable<T> Query(string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int commandTimeout = 0, CommandType? commandType = null)
         {
             using (var connection = new NpgsqlConnection(ConnectionString))
             {
@@ -45,7 +44,7 @@ namespace PokeTrade.Infrastructure.Repository
                 return connection.Query<T>(sql, param, transaction, buffered, commandTimeout);
             }
         }
-        public T QueryFirst<T>(string sql, object param = null, IDbTransaction transaction = null, int commandTimeout = 0, CommandType? commandType = null)
+        public T QueryFirst(string sql, object param = null, IDbTransaction transaction = null, int commandTimeout = 0, CommandType? commandType = null)
         {
             using (var connection = new NpgsqlConnection(ConnectionString))
             {
@@ -54,7 +53,7 @@ namespace PokeTrade.Infrastructure.Repository
             }
         }
 
-        public Task<IEnumerable<T>> QueryAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int commandTimeout = 0, CommandType? commandType = null)
+        public Task<IEnumerable<T>> QueryAsync(string sql, object param = null, IDbTransaction transaction = null, int commandTimeout = 0, CommandType? commandType = null)
         {
             using (var connection = new NpgsqlConnection(ConnectionString))
             {
@@ -63,7 +62,7 @@ namespace PokeTrade.Infrastructure.Repository
             }
         }
 
-        public Task<T> QueryFirstAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int commandTimeout = 0, CommandType? commandType = null)
+        public Task<T> QueryFirstAsync(string sql, object param = null, IDbTransaction transaction = null, int commandTimeout = 0, CommandType? commandType = null)
         {
             using (var connection = new NpgsqlConnection(ConnectionString))
             {

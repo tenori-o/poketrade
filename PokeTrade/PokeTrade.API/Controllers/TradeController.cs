@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PokeTrade.Application.IService;
-using PokeTrade.Domain.Dtos;
 using PokeTrade.Domain.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,11 +29,7 @@ namespace PokeTrade.API.Controllers
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Exception while reading from stream"))
-                {
-                    return Ok(true);
-                }
-                return BadRequest(ex.StackTrace);
+                return BadRequest(ex.Message);
             }
         }
 
