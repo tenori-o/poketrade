@@ -16,7 +16,7 @@
 </br>
 
 
-![Request MakeTrade](https://images2.imgbox.com/61/92/yQ9wP59S_o.png MakeTrade)
+![Request MakeTrade](https://images2.imgbox.com/61/92/yQ9wP59S_o.png)
 
 
-![Request GetHistory](https://images2.imgbox.com/54/d0/gbVz5OFa_o.png GetHistory)
+![Request GetHistory](https://images2.imgbox.com/54/d0/gbVz5OFa_o.png)
