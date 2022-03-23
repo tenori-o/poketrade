@@ -31,7 +31,11 @@ namespace PokeTrade.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                if (ex.Message.Contains("Exception while reading from stream"))
+                {
+                    return Ok(true);
+                }
+                return BadRequest(ex.StackTrace);
             }
         }
 
@@ -45,7 +49,6 @@ namespace PokeTrade.API.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
         }

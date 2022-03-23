@@ -9,10 +9,9 @@ namespace PokeTrade.Infrastructure.Repository
 {
     public class TradeRepository : DapperRepository<Trade>, ITradeRepository
     {
-        private readonly IConfiguration _configuration;
 		private readonly IMapper _mapper;
 
-		public TradeRepository(IConfiguration configuration, IMapper mapper) : base(configuration)
+		public TradeRepository(IMapper mapper)
         {
 			_mapper = mapper;
 		}

@@ -12,7 +12,6 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -22,7 +21,8 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5011;http://localhost:5010",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASE_URL": "postgres://mqphfvcqghsrpf:07089703dfcf3178d2cb429033dba56deed8d16c04b86cafa9b476f9d2710b34@ec2-44-194-92-192.compute-1.amazonaws.com:5432/ddgqv1bda4dtvu"
       }
     }
   }

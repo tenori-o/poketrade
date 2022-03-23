@@ -29,15 +29,15 @@ namespace PokeTrade.Application.Services
             // Verificar se a soma do baseExperience dos 2 jogadores é similar e considerar a troca justa ou não
             var trade = _mapper.Map<Trade>(tradeVM);
 
-            if (tradeVM.BaseExperienceP1 != tradeVM.BaseExperienceP2)
+            if (trade.BaseExpP1 != trade.BaseExpP2)
             {
-                tradeVM.Status = TradeStatus.UNFAIR.ToString();
+                trade.Status = TradeStatus.UNFAIR;
                 _tradeRepository.Insert(trade);
 
                 throw new TradeException("Unfair trade");
             }
 
-            tradeVM.Status = TradeStatus.FAIR.ToString();
+            trade.Status = TradeStatus.FAIR;
             _tradeRepository.Insert(trade);
 
             return true;
