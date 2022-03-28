@@ -48,7 +48,7 @@ namespace PokeTrade.Application.Services
                     SetFairTrade(trade);
                 } else
                 {
-                    SetUnfairTrade(trade, $"Unfair trading. The base exp ({trade.BaseExpP1}) value from player 1, is too low for trading player 2 pokemons with base exp ({trade.BaseExpP2}).");
+                    SetUnfairTrade(trade, $"Unfair trading. The base exp ({trade.BaseExpP1}) value from player 1 pokemons, is too low for trading player 2 pokemons with base exp ({trade.BaseExpP2}).");
                 }
             } else
             {
@@ -60,7 +60,7 @@ namespace PokeTrade.Application.Services
                 }
                 else
                 {
-                    SetUnfairTrade(trade, $"Unfair trading. The base exp ({trade.BaseExpP2}) value from player 2, is too low for trading player 1 pokemons with base exp ({trade.BaseExpP2}).");
+                    SetUnfairTrade(trade, $"Unfair trading. The base exp ({trade.BaseExpP2}) value from player 2 pokemons, is too low for trading player 1 pokemons with base exp ({trade.BaseExpP1}).");
                 }
             }
 
