@@ -42,9 +42,9 @@ namespace PokeTrade.API
                 });
             });
 
-            //services.AddCors(o =>
-            //    o.AddDefaultPolicy(b =>
-            //        b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+            services.AddCors(o =>
+                o.AddDefaultPolicy(b =>
+                    b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
             services.AddSingleton<IConfiguration>(Configuration);
 
@@ -79,7 +79,7 @@ namespace PokeTrade.API
 
             app.UseRouting();
 
-            //app.UseCors();
+            app.UseCors();
 
             app.UseAuthorization();
 
