@@ -3,7 +3,7 @@
 ## Calculadora de trocas de pokemon
 
 #### O projeto foi construido com base na Api - https://pokeapi.co/docs/v2 de Pokémon. Ela busca informações sobre nome, id, fotos, base experience.
-#### Ele foi publicado no heroku - https://poketradeapi.herokuapp.com/index.html. 
+#### Ele foi publicado no heroku - https://poketradeapi-lucastenorio.herokuapp.com/. 
 #### Como foi construído com ASP.NET Core 3.1 e o heroku não consegue subir diretamente o projeto, foi realizada a tentativa de construir um conntainer com docker, porém há uma abordagem muito mais simples usando buildpacks.
 #### A aplicação foi construída utilizando a abordagem DDD, Dependency Injection, Generic Repository e Swagger.
 
